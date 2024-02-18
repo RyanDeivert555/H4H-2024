@@ -116,6 +116,33 @@ body {
     text-align: center;
 }
 
+.bgd {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    top: 0%;
+    left: 0%;
+    overflow: hidden;
+}
+
+.bgd img {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    left: -90px;
+    object-fit: cover;
+    opacity: 0.6;
+}
+
+.abtOverlay{
+    position: absolute;
+    padding-left: 500px;
+    padding-right: 500px;
+    top: 35%;
+    text-align: center;
+    z-index: 3;
+}
+
 .location-buttons {
     box-shadow:0 4px 16px 0 rgba(35,54,61,0.3);
     font-family: Tahoma;
