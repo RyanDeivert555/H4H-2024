@@ -23,19 +23,10 @@ const auth = getAuth();
 const provider = new GoogleAuthProvider();
 
 googleSignInButton?.addEventListener("click", signInWithGoogle);
-readDataButton?.addEventListener("click", readData);
 
 function signInWithGoogle() {
     signInWithPopup(auth, provider).then((result) => {
         const user = result.user;
         document.getElementById("user-data")!.innerText = user.uid;
     })
-}
-
-function readData() {
-    const reference = doc(getFirestore(), "reviews", "base");
-
-    getDoc(reference).then( (doc) => {
-        document.getElementById("data")!.innerText = JSON.stringify(doc.data());
-    });
 }
