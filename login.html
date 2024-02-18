@@ -1,26 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>H4H Firebase Workshop</title>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Login Page</title>
+   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-    <script src="login_script.ts" type="module"></script>
-    <h1>Welcome to the Firebase Workshop</h1>
-    <p>Click the button below to sign in with Google</p>
-    <button id="google-signin">Sign in with Google</button>
-    <div id="user-data"></div>
+  <script src="login_script.ts" type="module"></script>
 
-    <div>
-        <h2>Sign Out</h2>
-        <button id="signout">Sign Out</button>
-        <p id="data"></p>
+  <div class="navigation">
+    <h1> Hydration Buddy </h1>
+    <div class="left">
+    <div class="vertical-center">
+      <a href="index.html">Home</a>
+      <a href="fountains.html">Fountains</a>
+      <a href="about.html">About</a>
     </div>
-    <a href="index.html">Back</a>
+    </div>
+  
+    <div class="right">
+      <a href="login.html">Login</a>
+    </div>
+    <div class="right">
+      <p id="userfield"></p>
+    </div>
+  </div>
 
+  <div class="main">
+   <h1>LOG IN TO HYDRATION BUDDY</h1>
+   <p></p>
+   <p>Click the button below to sign in with Google</p>
+   <div class="google">
+    <img src="https://developers.google.com/identity/images/g-logo.png">
+    <button id="google-signin">Sign in with Google</button>
+   </div>
+   <div id="user-data"></div>
+
+
+   <div>
+       <h2>Sign Out</h2>
+       <button id="signout">Sign Out</button>
+       <p id="data"></p>
+   </div>
+
+   </div>
 </body>
 
 </html>
