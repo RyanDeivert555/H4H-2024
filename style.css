@@ -13,6 +13,7 @@ body {
     left: 0;
     z-index: 2;
     background-image: linear-gradient(#95C8D8, #0080FE);
+    vertical-align: middle;
     text-align: inline;
     white-space: nowrap;
 }
@@ -32,8 +33,10 @@ body {
     text-align: center;
     text-decoration: none;
     color: #ffffff;
-    padding-top: 50px;
     padding-right: 25px;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 50px;
 }
 
 .navigation .left {
@@ -42,6 +45,18 @@ body {
 
 .navigation .right {
     float: right;
+    position: sticky;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.vertical-center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
 }
 
 .navigation p {
