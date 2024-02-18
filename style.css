@@ -27,13 +27,22 @@ body {
 }
 
 .navigation a {
-    float: left;
     text-align: center;
     text-decoration: none;
     color: #ffffff;
     padding-top: 30px;
     padding-right: 25px;
     display: block;
+    text-align: inline;
+    white-space: nowrap;
+}
+
+.navigation .left {
+    float: left;
+}
+
+.navigation .right {
+    float: right;
 }
 
 .navigation p {
