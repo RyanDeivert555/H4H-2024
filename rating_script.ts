@@ -1,5 +1,6 @@
-import { collection, addDoc,getFirestore } from "firebase/firestore";
-import {app} from "./config.ts";
+import { collection, addDoc } from "firebase/firestore";
+import { getFirestore } from "firebase/firestore";
+import { app } from "./config.ts";
 
 const db = getFirestore(app);
 
