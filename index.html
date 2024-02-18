@@ -2,19 +2,39 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hydration Buddy</title>
-    
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Hydration Buddy</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-    <div class ="container">
-        <canvas id="myChart"></canvas>
-        <script src="chart.ts" type="module"></script>
-        <link rel="stylesheet" href="chart_style.css">
+  <script src="index_script.ts" type="module"></script>
+  <div class="navigation">
+    <h1> Hydration Buddy </h1>
+    <p>Home</p>
+    <a href="/about">About</a>
+  </div>
+
+  <div class="main">
+
+    <div class="banner">
+      <p>Eliminating single-use plastic</p>
+      <h1>Hydration Buddies</h1>
+      <p>Reduce waste by finding refill stations nearby!</p>
+      <a href="/review?fountain=benson">Review Benson</a>
+      <a href="/review?fountain=scdi">Review SCDI</a>
+      <a href="/about">About</a>
+      <a href="/login">Login</a>
     </div>
+    <div>
+        <h1>User: </h1>
+        <p id="userid"></p>
+    </div>
+
+  </div>
+  </div>
 </body>
 
-</html> 
+</html>
