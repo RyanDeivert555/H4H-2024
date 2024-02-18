@@ -1,14 +1,13 @@
-import { getAuth, GoogleAuthProvider, signInWithPopup, signOut } from "firebase/auth"
-import {app} from "./config.ts"
+import { getAuth, GoogleAuthProvider, signInWithPopup, signOut,onAuthStateChanged } from "firebase/auth"
+import {app,auth} from "./config.ts"
 
 const googleSignInButton = document.getElementById("google-signin");
-const readDataButton = document.getElementById("read-data-button");
-
-const auth = getAuth(app);
+const signOutButton = document.getElementById("signout");
 
 const provider = new GoogleAuthProvider();
 
 googleSignInButton?.addEventListener("click", signInWithGoogle);
+signOutButton?.addEventListener("click", signOutPress);
 
 function signInWithGoogle() {
     signInWithPopup(auth, provider).then((result) => {
@@ -16,3 +15,21 @@ function signInWithGoogle() {
         document.getElementById("user-data")!.innerText = user.uid;
     })
 }
+
+function signOutPress() {
+    auth.signOut();
+}
+
+onAuthStateChanged(auth, (user) => {
+    if (user) {
+      // User is signed in, see docs for a list of available properties
+      // https://firebase.google.com/docs/reference/js/auth.user
+      const uid = user.uid;
+      console.log(uid);
+      // ...
+    } else {
+      // User is signed out
+      // ...
+      console.log("Signed Out");
+    }
+  });
