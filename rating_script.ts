@@ -1,8 +1,17 @@
-import { collection, addDoc } from "firebase/firestore";
-import { getFirestore } from "firebase/firestore";
+import { collection, addDoc, getFirestore } from "firebase/firestore";
+import { getAuth } from "firebase/auth";
 import { app } from "./config.ts";
 
 const db = getFirestore(app);
+const auth = getAuth(app);
+
+auth.onAuthStateChanged(function (user) {
+    if (user) {
+        console.log("user logged in!");
+    } else {
+        window.location.href = "/login";
+    }
+});
 
 type Data = {
     taste: number,
@@ -38,7 +47,7 @@ function getUserData(): Data {
         pressure: Number(pressure),
         fountainId: source,
         comments: comments,
-        user: "test user",
+        user: auth.currentUser!.uid,
     };
 }
 
