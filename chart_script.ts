@@ -6,8 +6,12 @@ const fountainId = getParameterByName();
 const db = getFirestore(app);
 
 console.log("Fountain ID:");
-document.getElementById("titlefield")!.innerText = fountainId;
 console.log(fountainId);
+
+const docRef = doc(db, "fountains",fountainId);
+const docSnap = await getDoc(docRef);
+document.getElementById("titlefield")!.innerText = docSnap.get("name");
+
 
 document.getElementById("reviewnavigate")?.addEventListener("click", navigateToRating);
 
@@ -21,8 +25,9 @@ var accessibilityArr: number[] = [];
 var healthArr: number[] = [];
 var pressureArr: number[] = [];
 
-const querySnapshot = await getDocs(collection(db, "reviews"));
-querySnapshot.forEach((doc) => {
+const querySnapshotReviews = await getDocs(collection(db, "reviews"));
+
+querySnapshotReviews.forEach((doc) => {
   // doc.data() is never undefined for query doc snapshots
   const currFountain = doc.get("fountainId");
   if(currFountain==fountainId){
