@@ -1,5 +1,8 @@
 import { collection, addDoc } from "firebase/firestore";
-import db from "./config.ts";
+import { getFirestore } from "firebase/firestore";
+import { app } from "./config.ts";
+
+const db = getFirestore(app);
 
 type Data = {
     taste: number,
