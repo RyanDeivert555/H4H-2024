@@ -18,13 +18,13 @@ body {
     overflow-x: hidden;
 }
 
-.banner a {
+a {
     color: #ffffff;
     padding: 20px;
     display: block;
 }
 
-.banner a:hover {
+a:hover {
     background-color: #00008b;
     color: black;
 }
@@ -33,10 +33,6 @@ body {
     font-size: 50px;
     margin-top: 0;
     margin-bottom: 20px;
-}
-
-.banner p {
-    font-size: 30;
 }
 
 .options {
