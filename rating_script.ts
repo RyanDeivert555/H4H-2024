@@ -57,7 +57,7 @@ async function sendData(): Promise<void> {
     await addDoc(reviews, userData);
 
     alert("Form was submitted!");
-    window.location.reload();
+    window.location.href = "/review?fountain="+fountainName;
 }
 
 document.getElementById("submit")?.addEventListener("click", sendData);

@@ -1,9 +1,12 @@
 import Chart from "chart.js/auto";
-import { getFirestore, getDoc, doc } from "firebase/firestore";
-import { getParameterByName } from "./config";
+import { getFirestore, getDoc, doc, collection, getDocs} from "firebase/firestore";
+import { app,getParameterByName } from "./config";
 
 const fountainId = getParameterByName();
+const db = getFirestore(app);
 
+console.log("Fountain ID:");
+document.getElementById("titlefield")!.innerText = fountainId;
 console.log(fountainId);
 
 document.getElementById("reviewnavigate")?.addEventListener("click", navigateToRating);
@@ -12,26 +15,45 @@ function navigateToRating() {
     window.location.href = "/rating?fountain=" + fountainId;
 }
 
+var tasteArr: number[] = [];
+var locationArr: number[] = [];
+var accessibilityArr: number[] = [];
+var healthArr: number[] = [];
+var pressureArr: number[] = [];
+
+const querySnapshot = await getDocs(collection(db, "reviews"));
+querySnapshot.forEach((doc) => {
+  // doc.data() is never undefined for query doc snapshots
+  const currFountain = doc.get("fountainId");
+  if(currFountain==fountainId){
+    tasteArr.push(doc.get("taste"));
+    locationArr.push(doc.get("taste"));
+    accessibilityArr.push(doc.get("accessibility"));
+    healthArr.push(doc.get("health"));
+    pressureArr.push(doc.get("pressure"));
+  }
+});
 
 
-// const reference = doc(getFirestore(), "fountains", fountainId!);
-// const docSnap = await getDoc(reference);
-// const taste = docSnap.get("taste");
-// const location = docSnap.get("location");
-// const accessibility = docSnap.get("accessibility");
-// const health = docSnap.get("health");
-// const pressure = docSnap.get("pressure");
 
 const ctx = <HTMLCanvasElement>document.getElementById("chart");
+function average(array) : number {
+    if(array.length==0){
+        return 0;
+    }
+    else {
+        return array.reduce((a, b) => a + b) / array.length;
+    }
+}
 
 new Chart(ctx, {
     type: "radar",
     data: {
-        labels: ["Taste", "Location", "Accesibility", "Cleanliness", "Water Pressure"],
+        labels: ["Taste", "Location", "Accessibility", "Cleanliness", "Water Pressure"],
         datasets: [{
             label: "Drinking Fountain Rating",
             //data: [1.0, 3.5, 2.7, 4.2, 5],
-            data: [taste, location, accessibility, health, pressure],
+            data: [average(tasteArr), average(locationArr), average(accessibilityArr), average(healthArr), average(pressureArr)],
             borderWidth: 1,
             fill: true,
             backgroundColor: "rgba(255, 99, 132, 0.2)",
