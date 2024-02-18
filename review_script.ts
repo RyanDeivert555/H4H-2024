@@ -1,7 +1,7 @@
 import Chart from "chart.js/auto";
-import { getFirestore, getDoc, doc, collection, getDocs} from "firebase/firestore";
+import { getFirestore, getDoc, doc, collection, getDocs, setDoc, } from "firebase/firestore";
 import { getAuth } from "firebase/auth"
-import { app,getParameterByName } from "./config";
+import { app, getParameterByName } from "./config";
 
 const fountainId = getParameterByName();
 const db = getFirestore(app);
@@ -9,7 +9,7 @@ const db = getFirestore(app);
 console.log("Fountain ID:");
 console.log(fountainId);
 
-const docRef = doc(db, "fountains",fountainId);
+const docRef = doc(db, "fountains", fountainId);
 const docSnap = await getDoc(docRef);
 document.getElementById("titlefield")!.innerText = docSnap.get("name");
 
@@ -29,22 +29,42 @@ var pressureArr: number[] = [];
 const querySnapshotReviews = await getDocs(collection(db, "reviews"));
 
 querySnapshotReviews.forEach((doc) => {
-  // doc.data() is never undefined for query doc snapshots
-  const currFountain = doc.get("fountainId");
-  if(currFountain==fountainId){
-    tasteArr.push(doc.get("taste"));
-    locationArr.push(doc.get("taste"));
-    accessibilityArr.push(doc.get("accessibility"));
-    healthArr.push(doc.get("health"));
-    pressureArr.push(doc.get("pressure"));
-  }
+    // doc.data() is never undefined for query doc snapshots
+    const currFountain = doc.get("fountainId");
+    if (currFountain == fountainId) {
+        tasteArr.push(doc.get("taste"));
+        locationArr.push(doc.get("taste"));
+        accessibilityArr.push(doc.get("accessibility"));
+        healthArr.push(doc.get("health"));
+        pressureArr.push(doc.get("pressure"));
+    }
 });
+
+type Data = {
+    taste: number,
+    location: number,
+    accessibility: number,
+    health: number,
+    pressure: number,
+};
+
+
+const userdata: Data = {
+    taste: average(tasteArr),
+    location: average(locationArr),
+    accessibility: average(accessibilityArr),
+    health: average(healthArr),
+    pressure: average(pressureArr),
+}
+
+const fountain = doc(db, "fountains", fountainId);
+await setDoc(fountain, userdata, { merge: true });
 
 
 
 const ctx = <HTMLCanvasElement>document.getElementById("myChart");
-function average(array) : number {
-    if(array.length==0){
+function average(array): number {
+    if (array.length == 0) {
         return 0;
     }
     else {
@@ -62,8 +82,8 @@ new Chart(ctx, {
             data: [average(tasteArr), average(locationArr), average(accessibilityArr), average(healthArr), average(pressureArr)],
             borderWidth: 1,
             fill: true,
-            backgroundColor: "rgba(255, 99, 132, 0.2)",
-            borderColor: "rgb(255, 99, 132)"
+            backgroundColor: "rgba(47, 127, 241, 0.2)",
+            borderColor: "rgb(47, 127, 241)"
             //size: {width: "80%", height: "90%"}
         }]
     },
