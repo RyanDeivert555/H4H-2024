@@ -5,8 +5,8 @@ const auth = getAuth(app);
 
 auth.onAuthStateChanged(function (user) {
     if (user) {
-        console.log(auth.currentUser!.uid);
+        document.getElementById("userid")!.innerText = user.uid;
     } else {
-        // No user is signed in.
+        document.getElementById("userid")!.innerText = "Signed Out";
     }
 });
