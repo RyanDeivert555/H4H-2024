@@ -8,7 +8,7 @@ const fountainName = getParameterByName();
 
 auth.onAuthStateChanged(function (user) {
     if (user) {
-        console.log("user logged in!");
+        document.getElementById("userfield")!.innerText = auth.currentUser!.uid;
     } else {
         window.location.href = "/login";
     }

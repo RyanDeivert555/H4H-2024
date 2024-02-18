@@ -5,6 +5,12 @@ body {
     font-size: 15px;
 }
 
+.black {
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+}
+
 .navigation {
     width: 100%;
     overflow: hidden;
@@ -39,6 +45,16 @@ body {
     padding-right: 50px;
 }
 
+.navigation p {
+    text-align: center;
+    text-decoration: none;
+    color: #ffffff;
+    padding-right: 25px;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 50px;
+}
+
 .navigation .left {
     float: left;
 }
@@ -59,17 +75,6 @@ body {
     transform: translateY(-50%);
 }
 
-.navigation p {
-    float: left;
-    text-align: center;
-    text-decoration: none;
-    color: #000000;
-    padding-top: 16px;
-    padding-right: 25px;
-    font-weight: bold;
-    display: block;
-}
-
 .navigation a:hover {
     color: black;
 }
@@ -84,13 +89,19 @@ body {
 }
 
 .background img {
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
-    left: -90px;
-    object-fit: cover;
-    opacity: 0.5;
-    clip-path: polygon(10% 0, 100% 0, 100% 100%, 10% 100%); 
+    /* Set rules to fill background */
+    min-height: 100%;
+    min-width: 1024px;
+
+    /* Set up proportionate scaling */
+    width: 100%;
+    height: auto;
+
+    /* Set up positioning */
+    position: fixed;
+    top: 0;
+    left: 0;
+    opacity: 0.7;
 }
 
 .overlay{
@@ -109,6 +120,11 @@ body {
 
 .overlay h1 {
     font-size: 60px;
+}
+
+.main2 {
+    padding-top: 0px;
+    text-align: center;
 }
 
 .main {
