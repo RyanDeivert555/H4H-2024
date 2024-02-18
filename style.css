@@ -1,0 +1,21 @@
+body {
+    background-color: #b1d4e0;
+}
+
+.banner {
+    background-color: yellow;
+    padding-top: 0.1%;
+    padding-left: 0.25%;
+}
+
+#submit2 {
+    padding-top: 0.25%;
+}
+
+.form {
+    padding-left: 0.25%;
+}
+
+.navbar {
+    padding-right: 0.55%;
+}
