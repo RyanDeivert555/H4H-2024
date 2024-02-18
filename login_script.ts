@@ -24,7 +24,7 @@ function signOutPress() {
 
 auth.onAuthStateChanged(function (user) {
     if (user) {
-        document.getElementById("user-data")!.innerText = user.uid;
+        document.getElementById("user-data")!.innerText = user.displayName!;
     } else {
         document.getElementById("user-data")!.innerText = "Signed Out";
     }

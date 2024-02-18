@@ -5,7 +5,7 @@ const auth = getAuth(app);
 
 auth.onAuthStateChanged(function (user) {
     if (user) {
-        document.getElementById("userfield")!.innerText = user.uid;
+        document.getElementById("userfield")!.innerText = user.displayName!;
     } else {
         document.getElementById("userfield")!.innerText = "Signed Out";
     }
