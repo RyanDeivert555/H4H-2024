@@ -19,14 +19,14 @@ type Data = {
     location: number,
     accessibility: number,
     health: number,
-    tempurature: number,
+    pressure: number,
     fountainId: string,
     comments: string,
     user: string,
 };
 
 function getInnerText(id: string): string {
-    const result = <HTMLInputElement> document.getElementById(id);
+    const result = <HTMLInputElement>document.getElementById(id);
 
     return result.value;
 }
@@ -36,7 +36,7 @@ function getUserData(): Data {
     const location = getInnerText("location");
     const accessibility = getInnerText("accessibility");
     const health = getInnerText("health");
-    const temperature = getInnerText("temperature");
+    const pressure = getInnerText("pressure");
     const source = getInnerText("source");
     const comments = getInnerText("comments");
 
@@ -45,7 +45,7 @@ function getUserData(): Data {
         location: Number(location),
         accessibility: Number(accessibility),
         health: Number(health),
-        tempurature: Number(temperature),
+        pressure: Number(pressure),
         fountainId: source,
         comments: comments,
         user: "test user",
@@ -59,6 +59,6 @@ async function sendData(): Promise<void> {
 
     alert("Form was submitted!");
     window.location.reload();
-}   
+}
 
 document.getElementById("submit")?.addEventListener("click", sendData);
