@@ -1,46 +1,79 @@
 body {
     width: 100%;
     margin: 0;
-    background-image: linear-gradient(to bottom right, #00008b, #448EE4);
-    color: #ffffff;
     font-family: Tahoma;
-    font-size: 20px;
-    padding: 10px 10px;
+    font-size: 15px;
 }
 
-.banner {
-    height: 100%;
-    width: 200px;
+.navigation {
+    width: 100%;
+    overflow: hidden;
     position: fixed;
-    z-index: 1;
     top: 0;
     left: 0;
-    overflow-x: hidden;
+    background-image: linear-gradient(#95C8D8, #0080FE);
 }
 
-a {
+.navigation h1 {
+    float: left;
+    text-align: center;
+    font-size: 30px;
     color: #ffffff;
-    padding: 20px;
+    display: block;
+    display: inline;
+    padding-left: 20px;
+    padding-right: 50px;
+}
+
+.navigation a {
+    float: left;
+    text-align: center;
+    text-decoration: none;
+    color: #ffffff;
+    padding-top: 30px;
+    padding-right: 25px;
     display: block;
 }
 
-a:hover {
-    background-color: #00008b;
+.navigation p {
+    float: left;
+    text-align: center;
+    text-decoration: none;
+    color: #000000;
+    padding-top: 16px;
+    padding-right: 25px;
+    font-weight: bold;
+    display: block;
+}
+
+.navigation a:hover {
     color: black;
 }
 
-.banner h1 {
-    font-size: 50px;
+.main {
+    padding-top: 120px;
+    text-align: center;
+}
+
+.banner h1{
+    font-size: 40px;
     margin-top: 0;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
+}
+
+hr {
+    height: 3px;
+    background-color: #000000;
+    border-color: #000000;
 }
 
 .options {
-    width: 60vw;
+    width: 80%;
+    background-color: #95C8D8;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
     max-width: 500px;
-    min-width: 200px;
-    margin: 0 auto;
-    padding-bottom: 2em;
 }
 
 input[type="text"] {
@@ -48,5 +81,5 @@ input[type="text"] {
     width: 60%;
     margin: 1em auto;
     height: 2em;
-    background-color: #ADD8E6;
+    background-color: #ffffff;
 }
