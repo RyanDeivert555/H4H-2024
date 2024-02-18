@@ -1,8 +1,9 @@
-import { collection, addDoc } from "firebase/firestore";
-import { getFirestore } from "firebase/firestore";
+import { collection, addDoc,getFirestore  } from "firebase/firestore";
+import { getAuth } from "firebase/auth";
 import { app } from "./config.ts";
 
 const db = getFirestore(app);
+const auth = getAuth(app);
 
 type Data = {
     taste: number,
@@ -38,11 +39,12 @@ function getUserData(): Data {
         pressure: Number(pressure),
         fountainId: source,
         comments: comments,
-        user: "test user",
+        user: "test",
     };
 }
 
 async function sendData(): Promise<void> {
+    if(AuthenticatorAssertionResponse.)
     const userData = getUserData();
     const reviews = collection(db, "reviews");
     await addDoc(reviews, userData);
