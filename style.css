@@ -170,3 +170,21 @@ input[type="text"] {
     height: 2em;
     background-color: #ffffff;
 }
+
+.google {
+    white-space: nowrap;
+    vertical-align: center;
+}
+
+.google img {
+    height: 40px;
+}
+
+#google-signin {
+    padding: 10px;
+    background-color: #4285F4;
+    border-radius: 3px;
+    color: white;
+    font-size: 30px;
+    font-family: arial;
+}
