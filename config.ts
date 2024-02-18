@@ -11,3 +11,9 @@ const firebaseConfig = {
 };
 
 export const app = initializeApp(firebaseConfig);
+
+export function getParameterByName(): string {
+    const url = window.location.href;
+
+    return url.split("=")[1];
+}

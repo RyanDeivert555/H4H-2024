@@ -5,6 +5,14 @@ import { app } from "./config.ts";
 const db = getFirestore(app);
 const auth = getAuth(app);
 
+auth.onAuthStateChanged(function (user) {
+    if (user) {
+        console.log("user logged in!");
+    } else {
+        window.location.href = "/login";
+    }
+});
+
 type Data = {
     taste: number,
     location: number,
@@ -28,7 +36,7 @@ function getUserData(): Data {
     const accessibility = getInnerText("accessibility");
     const health = getInnerText("health");
     const pressure = getInnerText("pressure");
-    const source = getInnerText("source");
+    const fountainName = getInnerText("fountainName");
     const comments = getInnerText("comments");
 
     return {
@@ -37,14 +45,13 @@ function getUserData(): Data {
         accessibility: Number(accessibility),
         health: Number(health),
         pressure: Number(pressure),
-        fountainId: source,
+        fountainId: fountainName,
         comments: comments,
-        user: "test",
+        user: auth.currentUser!.uid,
     };
 }
 
 async function sendData(): Promise<void> {
-    if(AuthenticatorAssertionResponse.)
     const userData = getUserData();
     const reviews = collection(db, "reviews");
     await addDoc(reviews, userData);
