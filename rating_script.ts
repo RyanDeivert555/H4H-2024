@@ -1,9 +1,10 @@
 import { collection, addDoc,getFirestore  } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
-import { app } from "./config.ts";
+import { app, getParameterByName } from "./config.ts";
 
 const db = getFirestore(app);
 const auth = getAuth(app);
+const fountainName = getParameterByName();
 
 auth.onAuthStateChanged(function (user) {
     if (user) {
@@ -36,7 +37,6 @@ function getUserData(): Data {
     const accessibility = getInnerText("accessibility");
     const health = getInnerText("health");
     const pressure = getInnerText("pressure");
-    const fountainName = getInnerText("fountainName");
     const comments = getInnerText("comments");
 
     return {

@@ -6,13 +6,21 @@ const fountainId = getParameterByName();
 
 console.log(fountainId);
 
-const reference = doc(getFirestore(), "fountains", fountainId!);
-const docSnap = await getDoc(reference);
-const taste = docSnap.get("taste");
-const location = docSnap.get("location");
-const accessibility = docSnap.get("accessibility");
-const health = docSnap.get("health");
-const pressure = docSnap.get("pressure");
+document.getElementById("reviewnavigate")?.addEventListener("click", navigateToRating);
+
+function navigateToRating() {
+    window.location.href = "/rating?fountain=" + fountainId;
+}
+
+
+
+// const reference = doc(getFirestore(), "fountains", fountainId!);
+// const docSnap = await getDoc(reference);
+// const taste = docSnap.get("taste");
+// const location = docSnap.get("location");
+// const accessibility = docSnap.get("accessibility");
+// const health = docSnap.get("health");
+// const pressure = docSnap.get("pressure");
 
 const ctx = <HTMLCanvasElement>document.getElementById("chart");
 
