@@ -36,7 +36,7 @@ querySnapshot.forEach((doc) => {
 
 
 
-const ctx = <HTMLCanvasElement>document.getElementById("chart");
+const ctx = <HTMLCanvasElement>document.getElementById("myChart");
 function average(array) : number {
     if(array.length==0){
         return 0;
