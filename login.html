@@ -1,26 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>H4H Firebase Workshop</title>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Login Page</title>
+   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-    <script src="login_script.ts" type="module"></script>
-    <h1>Welcome to the Firebase Workshop</h1>
-    <p>Click the button below to sign in with Google</p>
-    <button id="google-signin">Sign in with Google</button>
-    <div id="user-data"></div>
+  <script src="login_script.ts" type="module"></script>
 
-    <div>
-        <h2>Sign Out</h2>
-        <button id="signout">Sign Out</button>
-        <p id="data"></p>
+   <div class="navigation">
+      <h1> Hydration Buddy </h1>
+      
+      <div class="left">
+        <a href="index.html">Home</a>
+        <a href="fountains.html">Fountains</a>
+        <a href="about.html">About</a>
+      </div>
+      <div class="right">
+        <p>Login</p>
+      </div>
     </div>
-    <a href="index.html">Back</a>
 
+  <div class="main">
+   <h1>Log In to Hydration Buddy</h1>
+   <p>Click the button below to sign in with Google</p>
+   <button id="google-signin">Sign in with Google</button>
+   <div id="user-data"></div>
+
+
+   <div>
+       <h2>Sign Out</h2>
+       <button id="signout">Sign Out</button>
+       <p id="data"></p>
+   </div>
+   <a href="index.html">Back</a>
+
+   </div>
 </body>
 
 </html>
