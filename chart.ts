@@ -14,7 +14,7 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig)
 
-const reference = doc(getFirestore(), "reviews", "base");
+const reference = doc(getFirestore(), "reviews", "y8Zn7NjRwZyj0fvFQhkv");
 const docSnap = await getDoc(reference);
 const taste = docSnap.get("taste");
 const location = docSnap.get("location");
@@ -35,7 +35,8 @@ const chart = new Chart(ctx, {
         borderWidth: 1,
         fill: true,
         backgroundColor: 'rgba(255, 99, 132, 0.2)',
-        borderColor: 'rgb(255, 99, 132)' 
+        borderColor: 'rgb(255, 99, 132)'
+        //size: {width: '80%', height: '90%'}
       }]
     },
     options: {
@@ -53,3 +54,4 @@ const chart = new Chart(ctx, {
       }
     }
   });
+
