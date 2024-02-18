@@ -1,7 +1,10 @@
 import Chart from "chart.js/auto";
-import { getFirestore, getDoc, doc, getDocs, collection, addDoc, setDoc, deleteDoc, DocumentData } from "firebase/firestore";
+import { getFirestore, getDoc, doc } from "firebase/firestore";
+import { getParameterByName } from "./config";
 
-const reference = doc(getFirestore(), "reviews", "y8Zn7NjRwZyj0fvFQhkv");
+const fountainId = getParameterByName("fountain", null);
+
+const reference = doc(getFirestore(), "fountains", "fountainId");
 const docSnap = await getDoc(reference);
 const taste = docSnap.get("taste");
 const location = docSnap.get("location");

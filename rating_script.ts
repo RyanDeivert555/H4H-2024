@@ -36,7 +36,7 @@ function getUserData(): Data {
     const accessibility = getInnerText("accessibility");
     const health = getInnerText("health");
     const pressure = getInnerText("pressure");
-    const source = getInnerText("source");
+    const fountainName = getInnerText("fountainName");
     const comments = getInnerText("comments");
 
     return {
@@ -45,7 +45,7 @@ function getUserData(): Data {
         accessibility: Number(accessibility),
         health: Number(health),
         pressure: Number(pressure),
-        fountainId: source,
+        fountainId: fountainName,
         comments: comments,
         user: auth.currentUser!.uid,
     };
