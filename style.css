@@ -9,8 +9,24 @@ body {
 }
 
 .banner {
-    text-align: center;
+    height: 100%;
+    width: 200px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+}
+
+.banner a {
+    color: #ffffff;
     padding: 20px;
+    display: block;
+}
+
+.banner a:hover {
+    background-color: #00008b;
+    color: black;
 }
 
 .banner h1 {
