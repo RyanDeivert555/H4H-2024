@@ -14,7 +14,7 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig)
 
-const reference = doc(getFirestore(), "reviews", "y8Zn7NjRwZyj0fvFQhkv");
+const reference = doc(getFirestore(), "reviews", "LXJnBmp6WtHA5iaabTsA");
 const docSnap = await getDoc(reference);
 const taste = docSnap.get("taste");
 const location = docSnap.get("location");
@@ -30,7 +30,6 @@ const chart = new Chart(ctx, {
       labels: ['Taste', 'Location', 'Accesibility', 'Cleanliness', 'Water Pressure'],
       datasets: [{
         label: 'Drinking Fountain Rating',
-        //data: [1.0, 3.5, 2.7, 4.2, 5],
         data: [taste, location, accessibility, health, pressure],
         borderWidth: 1,
         fill: true,

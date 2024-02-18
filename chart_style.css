@@ -1,0 +1,31 @@
+/* * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+} */
+
+/* body {
+    background: #d4bdde;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}  */
+
+
+.container {
+    display: flex;
+    height: 75vh;
+    width: 75vw;
+    align-items: center;
+    background-color: white;
+    justify-content: center;
+    gap: 200px;
+}
+
+.container #myChart {
+    height: 100px;
+    width: 100px;
+    transform: scale(1);
+}
+
