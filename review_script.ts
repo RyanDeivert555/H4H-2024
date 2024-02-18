@@ -1,5 +1,6 @@
 import Chart from "chart.js/auto";
 import { getFirestore, getDoc, doc, collection, getDocs} from "firebase/firestore";
+import { getAuth } from "firebase/auth"
 import { app,getParameterByName } from "./config";
 
 const fountainId = getParameterByName();
@@ -79,5 +80,16 @@ new Chart(ctx, {
                 }
             }
         }
+    }
+});
+
+
+const auth = getAuth(app);
+
+auth.onAuthStateChanged(function (user) {
+    if (user) {
+        document.getElementById("userfield")!.innerText = user.displayName!;
+    } else {
+        document.getElementById("userfield")!.innerText = "Signed Out";
     }
 });

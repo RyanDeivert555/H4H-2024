@@ -1,3 +1,5 @@
+import { app } from "./config.ts"
+import { getAuth } from "firebase/auth"
 const grahamf2 = document.getElementById("grahamf2");
 const graham2D = document.getElementById("graham2D");
 const sodaLP = document.getElementById("sodaLP");
@@ -35,3 +37,13 @@ function navFinnk3() {
 function navFinnk2() {
     window.location.href = "/review?fountain=finnk2";
 }
+
+const auth = getAuth(app);
+
+auth.onAuthStateChanged(function (user) {
+    if (user) {
+        document.getElementById("userfield")!.innerText = user.displayName!;
+    } else {
+        document.getElementById("userfield")!.innerText = "Signed Out";
+    }
+});

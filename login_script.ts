@@ -14,7 +14,7 @@ signOutButton?.addEventListener("click", signOutPress);
 function signInWithGoogle() {
     signInWithPopup(auth, provider).then((result) => {
         const user = result.user;
-        document.getElementById("user-data")!.innerText = user.uid;
+        document.getElementById("user-data")!.innerText = user.displayName!;
     })
 }
 
