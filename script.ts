@@ -25,20 +25,20 @@ type Data = {
     user: string,
 };
 
-function getInnerAndReset(id: string): string {
+function getInnerText(id: string): string {
     const result = <HTMLInputElement> document.getElementById(id);
 
     return result.value;
 }
 
 function getUserData(): Data {
-    const taste = getInnerAndReset("taste");
-    const location = getInnerAndReset("location");
-    const accessibility = getInnerAndReset("accessibility");
-    const health = getInnerAndReset("health");
-    const temperature = getInnerAndReset("temperature");
-    const source = getInnerAndReset("source");
-    const comments = getInnerAndReset("comments");
+    const taste = getInnerText("taste");
+    const location = getInnerText("location");
+    const accessibility = getInnerText("accessibility");
+    const health = getInnerText("health");
+    const temperature = getInnerText("temperature");
+    const source = getInnerText("source");
+    const comments = getInnerText("comments");
 
     return {
         taste: Number(taste),
@@ -58,6 +58,7 @@ async function sendData(): Promise<void> {
     await addDoc(reviews, userData);
 
     alert("Form was submitted!");
+    window.location.reload();
 }   
 
 document.getElementById("submit")?.addEventListener("click", sendData);
